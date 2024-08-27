@@ -1,0 +1,286 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Background */
+.no-chat-background {
+  background-color: #a04bb9;
+}
+
+/* Message Box */
+.message-box {
+  height: 95vh;
+  overflow: auto;
+  padding-top: 60px; /* Ensure the header doesn't overlap */
+}
+
+.message{
+  color: #ffffff;
+}
+
+/* Header */
+.message-box-header {
+  background: #00334a; /* Richer and more modern shade of purple */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000; /* Ensure it's above all other elements */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.15); /* Adjusted shadow for a more refined look */
+  color: #fff;
+  padding: 0px 20px; /* Enhanced padding for better spacing */
+  font-size: 18px; /* Slightly larger font size for better readability */
+  display: flex; /* Flexbox for alignment of content */
+  align-items: center; /* Vertically center content */
+  justify-content:baseline;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for definition */
+  transition: background 0.3s ease; /* Smooth background color transition */
+}
+
+.message-box-header:hover {
+  background: #3d006d; /* Darker shade on hover for a modern effect */
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .message-box-header {
+    font-size: 16px; /* Adjusted font size for smaller screens */
+    padding: 8px 16px; /* Adjusted padding for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .message-box-header {
+    font-size: 14px; /* Further reduced font size for very small screens */
+    padding: 6px 12px; /* Further reduced padding */
+  }
+}
+
+
+/* Messages Section */
+.messages-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #9fe4ed;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+
+/* Message Bubble */
+.message-bubble {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+  padding: 2px 2px;
+}
+
+.mbr {
+  flex-direction: row-reverse;
+}
+
+/* No Message Alert */
+.no-message-alert {
+  position: fixed; /* Fixed positioning to ensure it stays in place */
+  bottom: 40%; /* Closer to the bottom of the viewport */
+  left: 70%;
+  transform: translateX(-50%);
+  font-size: 16px; /* Slightly smaller for a more balanced look */
+  color: #fff;
+  background-color: rgb(93, 196, 173);
+  padding: 1rem 1.5rem; /* Adjusted padding for better spacing */
+  border-radius: 12px; /* Slightly more rounded corners */
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+  max-width: 80%; /* Ensures the alert doesn't become too wide on large screens */
+  z-index: 1000; /* Ensures it is above other content */
+  transition: opacity 0.3s ease-in-out; /* Smooth fade-in/out transition */
+}
+
+@media screen and (max-width: 622px) {
+  .no-message-alert {
+    font-size: 14px; /* Adjust font size for smaller screens */
+    padding: 0.8rem 1.2rem; /* Adjust padding for smaller screens */
+  }
+}
+
+/* Optional: Add a fade-out effect when the message is no longer needed */
+.no-message-alert.hidden {
+  opacity: 0;
+  pointer-events: none; /* Prevent interaction when hidden */
+}
+
+
+/* Chat Bubbles */
+.left-bubble, .right-bubble {
+  max-width: 80%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  position: relative;
+  padding: 12px;
+  word-wrap: break-word;
+  background-color: #f0fe86;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.left-bubble {
+  background: #0059ff;
+}
+
+.right-bubble {
+  background: #c93ba5e0;
+  align-self: flex-end;
+}
+
+@media screen and (max-width: 792px) {
+  .left-bubble, .right-bubble {
+    max-width: 70%;
+    padding: 10px;
+    margin: 8px 0;
+  }
+}
+
+@media screen and (max-width: 622px) {
+  .left-bubble, .right-bubble {
+    max-width: 90%;
+  }
+}
+
+/* Bubble Arrows */
+.bubble-arrow, .bubble-arrow-alt {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+}
+
+.bubble-arrow {
+  bottom: 12px;
+  left: -12px;
+  border-top: 12px solid #f0fe86;
+  border-radius: 0 8px 0 0;
+}
+
+.bubble-arrow-alt {
+  right: -12px;
+  bottom: 12px;
+  border-top: 12px solid #c93ba5e0;
+  border-radius: 8px 0 0 0;
+}
+
+/* Name and Timestamp */
+.name {
+  font-weight: bold;
+  color: #e0ff6e;
+  margin: 0 0 4px;
+}
+
+.message-timestamp {
+  font-size: 11px;
+  color: #2b2b2b;
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  text-transform: uppercase;
+}
+
+/* Message Input */
+.message-input {
+  background: #2d0080; /* Slightly adjusted color for a richer look */
+  position: fixed;
+  bottom: 0;
+  width: 140%;
+  padding: 10px 16px; /* Improved padding for better spacing */
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #C1D8C3; /* Lighter border for a more subtle look */
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+  z-index: 1000; /* Ensure it's above other elements */
+  border-radius: 8px 8px 0 0; /* Rounded top corners for a modern look */
+
+    padding: 12px;
+}
+
+/* Message Input Input Field */
+.message-input input {
+  outline: none;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ddd; /* Light border for the input field */
+  border-radius: 20px; /* Rounded corners for a sleeker appearance */
+  font-size: 16px; /* Improved font size for better readability */
+  color: #333; /* Darker text color for better contrast */
+  background: #fff; /* White background for the input field */
+  margin-right: 8px; /* Space between input and button */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+}
+
+
+/* Send Button */
+.send-button {
+  background-color: #20da5e; /* Brighter color for better visibility */
+  color: #fff;
+  padding: 10px 16px; /* Adjusted padding for a balanced look */
+  border: none;
+  border-radius: 50px; /* Fully rounded button for a modern look */
+  cursor: pointer;
+  font-size: 16px; /* Larger font size for readability */
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions for hover effects */
+}
+
+.send-button:hover {
+  background-color: #1abc9c; /* Slightly darker shade on hover */
+}
+
+.send-button:active {
+  transform: scale(0.95); /* Slight scale effect on click */
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .message-input {
+    padding: 10px 12px; /* Reduced padding on smaller screens */
+  }
+
+  .message-input input {
+    font-size: 14px; /* Adjusted font size for smaller screens */
+    padding: 8px; /* Reduced padding for input */
+  }
+
+  .send-button {
+    font-size: 14px; /* Adjusted font size for the button */
+    padding: 8px 14px; /* Adjusted padding */
+  }
+}
+
+
+.send-button {
+  background-color: rgb(32, 218, 94);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.send-button:hover {
+  background-color: rgb(28, 194, 85);
+}
+
+@media screen and (max-width: 792px) {
+  .send-button {
+    font-size: 14px;
+    width: auto;
+    padding: 8px;
+  }
+}
